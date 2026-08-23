@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>selfhate club — DOTA 2 GUILD</title>
+<meta name="description" content="selfhate club — гильдия Dota 2, входящая в топ-450 ладдера всех гильдий Японии. Знакомься с составом и подавай заявку.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Manrope:wght@400;500;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/jpeg" href="assets/shc.jpg">
+<link rel="stylesheet" href="css/style.css">
+<noscript><style>#preloader{display:none}.reveal{opacity:1;transform:none}</style></noscript>
+</head>
+<body class="loading">
+<!-- ================= PRELOADER ================= -->
+<div id="preloader" aria-hidden="true">
+  <div class="pre-center">
+    <div class="cube-scene">
+      <div class="cube">
+        <div class="cube-face cf-front"><img src="assets/shc.jpg" alt=""></div>
+        <div class="cube-face cf-back"><img src="assets/shc.jpg" alt=""></div>
+        <div class="cube-face cf-right"><img src="assets/shc.jpg" alt=""></div>
+        <div class="cube-face cf-left"><img src="assets/shc.jpg" alt=""></div>
+        <div class="cube-face cf-top"><img src="assets/shc.jpg" alt=""></div>
+        <div class="cube-face cf-bottom"><img src="assets/shc.jpg" alt=""></div>
+      </div>
+    </div>
+    <div class="pre-title">SELFHATE&nbsp;CLUB</div>
+    <div class="pre-status" id="preStatus">инициализация</div>
+    <div class="pre-bar"><div class="pre-bar-fill" id="preBarFill"></div><div class="pre-bar-glow"></div></div>
+    <div class="pre-percent mono" id="prePercent">0%</div>
+  </div>
+  <div class="pre-corner tl mono">SYS.BOOT // SHC.LANDING</div>
+  <div class="pre-corner br mono">JP.SERVER — AWAITING</div>
+</div>
+
+<!-- ================= CURSOR ================= -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ================= BACKGROUND FX ================= -->
+<canvas id="fxParticles"></canvas>
+<div class="bg-blob blob-a"></div>
+<div class="bg-blob blob-b"></div>
+<div class="bg-blob blob-c"></div>
+<div class="bg-grid"></div>
+<div class="bg-noise"></div>
+
+<!-- ================= HEADER ================= -->
+<header id="header">
+  <div class="scroll-progress"><div class="scroll-progress-fill" id="scrollProgressFill"></div></div>
+  <div class="header-inner container">
+    <a href="#hero" class="brand magnetic" data-cursor>
+      <img src="assets/shc.jpg" alt="selfhate club" class="brand-logo">
+      <span class="brand-text">selfhate<b>club</b><i class="mono">dota 2 guild</i></span>
+    </a>
+    <nav class="nav">
+      <a href="#roster" class="nav-link" data-cursor><span data-text="СОСТАВ">СОСТАВ</span></a>
+      <a href="#guild" class="nav-link" data-cursor><span data-text="ГИЛЬДИЯ">ГИЛЬДИЯ</span></a>
+      <a href="#join" class="nav-link" data-cursor><span data-text="ЗАЯВКА">ЗАЯВКА</span></a>
+    </nav>
+    <a href="#join" class="btn btn-primary btn-sm magnetic ripple-host" data-cursor>
+      <svg viewBox="0 0 24 24" class="ic" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Вступить
+    </a>
+  </div>
+</header>
+
+<main>
+<!-- ================= HERO ================= -->
+<section id="hero" class="hero">
+  <div class="hero-rays" aria-hidden="true"></div>
+  <div class="container hero-grid">
+    <div class="hero-left">
+      <div class="hero-badge reveal">
+        <img src="assets/dota2.png" alt="Dota 2" class="badge-logo">
+        <span class="mono">DOTA 2 GUILD // JAPAN LADDER</span>
+        <i class="pulse-dot"></i>
+      </div>
+      <h1 class="hero-title glitch reveal" data-delay="100" data-text="SELFHATE CLUB">
+        SELFHATE&nbsp;CLUB
+      </h1>
+      <div class="hero-typed reveal" data-delay="200">
+        <svg viewBox="0 0 24 24" class="ic ic-red" aria-hidden="true"><path d="M12 2l2.6 6.6L21 11l-6.4 2.4L12 20l-2.6-6.6L3 11l6.4-2.4z" fill="currentColor"/></svg>
+        <span class="mono"><span id="typed"></span><span class="type-caret"></span></span>
+      </div>
+      <p class="hero-desc reveal" data-delay="300">
+        Закрытая гильдия Dota 2, закрепившаяся в <b>топ-450 ладдера</b> среди всех гильдий Японии.
+        Пять игроков. Ноль пощады к таймингам. Вся боль — в себе, вся агрессия — в игре.
+      </p>
+      <div class="hero-actions reveal" data-delay="400">
+        <a href="#roster" class="btn btn-primary btn-lg magnetic ripple-host" data-cursor>
+          <svg viewBox="0 0 24 24" class="ic" aria-hidden="true"><path d="M16 4l5 5-5 5M21 9H9a6 6 0 0 0 0 12h3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Смотреть состав
+        </a>
+        <a href="#guild" class="btn btn-ghost btn-lg magnetic ripple-host" data-cursor>О гильдии</a>
+      </div>
+      <div class="hero-stats reveal" data-delay="500">
+        <div class="stat" data-tip="Место среди всех гильдий японского ладдера">
+          <div class="stat-num mono"><span class="counter" data-target="450">0</span></div>
+          <div class="stat-label">топ гильдий Японии</div>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat" data-tip="Активный ростер клуба">
+          <div class="stat-num mono"><span class="counter" data-target="4" data-pad="2">00</span></div>
+          <div class="stat-label">игрока в составе</div>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat" data-tip="Уникальных героев в пуле состава">
+          <div class="stat-num mono"><span class="counter" data-target="9" data-pad="2">00</span></div>
+          <div class="stat-label">героев в пуле</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right reveal" data-delay="250">
+      <div class="hero-emblem tilt" data-tilt-max="10">
+        <div class="emblem-ring"></div>
+        <div class="emblem-rays" aria-hidden="true"></div>
+        <img src="assets/dota2.png" alt="Логотип Dota 2" class="emblem-img" id="heroEmblem">
+      </div>
+      <div class="hero-chip chip-a mono">#RANK_450</div>
+      <div class="hero-chip chip-b mono">JP_SERVER</div>
+    </div>
+  </div>
+  <a href="#roster" class="scroll-hint magnetic" data-cursor aria-label="Прокрутить вниз">
+    <span class="mouse-shape"><span class="mouse-wheel"></span></span>
+    <span class="mono">SCROLL</span>
+  </a>
+</section>
+
+<!-- ================= MARQUEE ================= -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marqueeTrack">
+    <!-- содержимое дублируется из js для бесшовности -->
+    <span class="mq-item">SLARK</span><i class="mq-dia"></i>
+    <span class="mq-item">INVOKER</span><i class="mq-dia"></i>
+    <span class="mq-item">SHADOW FIEND</span><i class="mq-dia"></i>
+    <span class="mq-item">EMBER SPIRIT</span><i class="mq-dia"></i>
+    <span class="mq-item">QUEEN OF PAIN</span><i class="mq-dia"></i>
+    <span class="mq-item">LION</span><i class="mq-dia"></i>
+    <span class="mq-item">JUGGERNAUT</span><i class="mq-dia"></i>
+    <span class="mq-item">IO</span><i class="mq-dia"></i>
+    <span class="mq-item">HOODWINK</span><i class="mq-dia"></i>
+    <span class="mq-item mq-red">SELFHATE CLUB</span><i class="mq-dia"></i>
+  </div>
+</div>
+
+<!-- ================= ROSTER ================= -->
+<section id="roster" class="section">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="sec-tag mono">// ROSTER</div>
+      <h2 class="sec-title">СОСТАВ <b>КЛУБА</b></h2>
+      <p class="sec-sub">Наведи на карточку — профиль перевернётся. Пятый слот ждёт своего игрока.</p>
+    </div>
+
+    <div class="roster-grid">
+
+      <!-- TAK1RA -->
+      <article class="pcard-wrap reveal" data-delay="0">
+        <div class="pcard tilt spotlight" data-tilt-max="8" data-cursor>
+          <div class="pcard-flip">
+            <div class="pcard-front">
+              <div class="pcard-media">
+                <img src="assets/artem.jpg" alt="Tak1ra" class="pcard-photo" loading="lazy">
+                <div class="pcard-shade"></div>
+                <span class="role-tag mono" data-tip="Позиция 1 — ядро команды">POS 1 · CORE</span>
+                <span class="lead-crown" data-tip="Лидер гильдии">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8l4.5 3L12 4l4.5 7L21 8l-1.6 10H4.6z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M4.6 20.5h14.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+                </span>
+              </div>
+              <div class="pcard-body">
+                <h3 class="pcard-nick">Tak1ra</h3>
+                <div class="pcard-name mono">Манин Артём Витальевич</div>
+                <div class="pcard-meta">
+                  <span class="meta-item" data-tip="Возраст и дата рождения">
+                    <svg viewBox="0 0 24 24" class="ic-xs" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M3.5 9.5h17M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+                    19 лет | 08.08.2007
+                  </span>
+                  <span class="meta-item" data-tip="Регион">
+                    <svg viewBox="0 0 24 24" class="ic-xs" aria-hidden="true"><path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11z" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="10" r="2.6" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>
+                    Ульяновск, РФ
+                  </span>
+                </div>
+                <div class="pcard-hint mono">НАВЕДИ — ПРОФИЛЬ</div>
+              </div>
+            </div>
+            <div class="pcard-back">
+              <div class="back-head mono">PLAYER FILE // 01</div>
+              <h4 class="back-role">Core</h4>
+              <div class="hero-chips">
+                <span class="chip">Slark</span>
+                <span class="chip">Invoker</span>
+                <span class="chip">Shadow Fiend</span>
+              </div>
+              <blockquote class="pcard-quote">
+                <svg viewBox="0 0 24 24" class="quote-ic" aria-hidden="true"><path d="M5 17c0-5 2.5-8.5 6-10l.8 1.4C9.5 9.8 8.4 11.4 8.2 13c.3-.1.7-.2 1.1-.2 1.6 0 2.9 1.3 2.9 3a3 3 0 0 1-3 3c-2.4 0-4.2-1.7-4.2-1.8zm9.8 0c0-5 2.5-8.5 6-10l.8 1.4c-2.3 1.4-3.4 3-3.6 4.6.3-.1.7-.2 1.1-.2 1.6 0 2.9 1.3 2.9 3a3 3 0 0 1-3 3c-2.4 0-4.2-1.7-4.2-1.8z" fill="currentColor"/></svg>
+                Имеются качества лидера: добрый, понимающий, амбициозный, преданный.
+              </blockquote>
+              <div class="pcard-contact">
+                <span class="ct-label mono">СВЯЗЬ</span>
+                <a class="ct-link" href="https://t.me/sxulcanseeyou" target="_blank" rel="noopener" data-tip="@sxulcanseeyou — Telegram" data-cursor>
+                  <svg viewBox="0 0 24 24" class="ic-xs" aria-hidden="true"><path d="M21 5L3.8 11.6c-.8.3-.75 1.4.05 1.65l4.35 1.35 1.6 4.9c.25.75 1.25.85 1.65.15l2.2-3.8 4.55 3.35c.65.5 1.6.15 1.75-.65L21.9 6.1c.15-.85-.7-1.5-1.45-1.1z" transform="scale(.92) translate(1 .6)" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                  @sxulcanseeyou
+                </a>
+                <button type="button" class="profile-btn" data-open-player="tak1ra" data-cursor>КАРТОЧКА</button>
+              </div>
+              <div class="back-foot mono">SELFHATE.CLUB / LEADER</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- LUNAR -->
+      <article class="pcard-wrap reveal" data-delay="80">
+        <div class="pcard tilt spotlight" data-tilt-max="8" data-cursor>
+          <div class="pcard-flip">
+            <div class="pcard-front">
+              <div class="pcard-media">
+                <div class="pcard-photo pcard-avatar-svg" aria-hidden="true">
+                  <svg viewBox="0 0 200 200" class="avatar-svg">
+                    <defs>
+                      <linearGradient id="moonGrad" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#ff3348"/><stop offset="1" stop-color="#5c0713"/>
+                      </linearGradient>
+                    </defs>
+                    <circle cx="100" cy="100" r="86" fill="none" stroke="rgba(255,51,72,.25)" stroke-width="2"/>
+                    <path d="M128 52a56 56 0 1 0 20 76 46 46 0 0 1-20-76z" fill="url(#moonGrad)" opacity=".9"/>
+                    <circle cx="58" cy="64" r="2.4" fill="#ff8896"/>
+                    <circle cx="146" cy="150" r="1.8" fill="#ff8896"/>
+                    <circle cx="150" cy="58" r="1.4" fill="#ff8896"/>
+                  </svg>
+                </div>
+                <div class="pcard-shade"></div>
+                <span class="role-tag mono" data-tip="Позиция 2 — центральная линия">POS 2 · MID / CARRY</span>
+              </div>
+              <div class="pcard-body">
+                <h3 class="pcard-nick">Lunar</h3>
+                <div class="pcard-name mono">Баязитов Радмир</div>
+                <div class="pcard-meta">
+                  <span class="meta-item" data-tip="Возраст и дата рождения">
+                    <svg viewBox="0 0 24 24" class="ic-xs" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M3.5 9.5h17M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+                    14 лет | 22.09.2011
+                  </span>
+                  <span class="meta-item" data-tip="Регион">
+                    <svg viewBox="0 0 24 24" class="ic-xs" aria-hidden="true"><path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11z" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="10" r="2.6" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>
+                    Уфа, Россия
+                  </span>
+                </div>
+                <div class="pcard-hint mono">НАВЕДИ — ПРОФИЛЬ</div>
+              </div>
+            </div>
+            <div class="pcard-back">
+              <div class="back-head mono">PLAYER FILE // 02</div>
+              <h4 class="back-role">Mid-lane, Carry</h4>
+              <div class="hero-chips">
+                <span class="chip">Ember Spirit</span>
+                <span class="chip">Queen of Pain</span>
+              </div>
+              <blockquote class="pcard-quote">
+                <svg viewBox="0 0 24 24" class="quote-ic" aria-hidden="true"><path d="M5 17c0-5 2.5-8.5 6-10l.8 1.4C9.5 9.8 8.4 11.4 8.2 13c.3-.1.7-.2 1.1-.2 1.6 0 2.9 1.3 2.9 3a3 3 0 0 1-3 3c-2.4 0-4.2-1.7-4.2-1.8zm9.8 0c0-5 2.5-8.5 6-10l.8 1.4c-2.3 1.4-3.4 3-3.6 4.6.3-.1.7-.2 1.1-.2 1.6 0 2.9 1.3 2.9 3a3 3 0 0 1-3 3c-2.4 0-4.2-1.7-4.2-1.8z" fill="currentColor"/></svg>
+                «67 бож, я бог».
+              </blockquote>
+              <div class="pcard-contact">
+                <span class="ct-label mono">СВЯЗЬ</span>
+                <span class="ct-none mono">—</span>
+                <button type="button" class="profile-btn" data-open-player="lunar" data-cursor>КАРТОЧКА</button>
+              </div>
+              <div class="back-foot mono">SELFHATE.CLUB / MID</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- COLDSTLY -->
+      <article class="pcard-wrap reveal" data-delay="160">
+        <div class="pcard tilt spotlight" data-tilt-max="8" data-cursor>
+          <div class="pcard-flip">
+            <div class="pcard-front">
+              <div class="pcard-media">
+                <img src="assets/ivan_coldstly.jpg" alt="coldstly" class="pcard-photo" loading="lazy">
+                <div class="pcard-shade"></div>
+                <span class="role-tag mono" data-tip="Позиция 4 — ротационная поддержка">POS 4 · SOFT SUP</span>
+              </div>
+              <div class="pcard-body">
+                <h3 class="pcard-nick">coldstly</h3>
+                <div class="pcard-name mono">Карпенко Иван Александрович</div>
+                <div class="pcard-meta">
+                  <span class="meta-item" data-tip="Возраст и дата рождения">
+                    <svg viewBox="0 0 24 24" class="ic-xs" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M3.5 9.5h17M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+                    16 лет | 12.04.2010
+                  </span>
+                  <span class="meta-item" data-tip="Регион">
+                    <svg viewBox="0 0 24 24" class="ic-xs" aria-hidden="true"><path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11z" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="10" r="2.6" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>
+                    Уфа, РФ
+                  </span>
+                </div>
+                <div class="pcard-hint mono">НАВЕДИ — ПРОФИЛЬ</div>
+              </div>
+            </div>
+            <div class="pcard-back">
+              <div class="back-head mono">PLAYER FILE // 03</div>
+              <h4 class="back-role">Soft-Support / Full-Support</h4>
+              <div class="hero-chips">
+                <span class="chip">Lion</span>
+                <span class="chip">Juggernaut</span>
+              </div>
+              <blockquote class="pcard-quote">
+                <svg viewBox="0 0 24 24" class="quote-ic" aria-hidden="true"><path d="M5 17c0-5 2.5-8.5 6-10l.8 1.4C9.5 9.8 8.4 11.4 8.2 13c.3-.1.7-.2 1.1-.2 1.6 0 2.9 1.3 2.9 3a3 3 0 0 1-3 3c-2.4 0-4.2-1.7-4.2-1.8zm9.8 0c0-5 2.5-8.5 6-10l.8 1.4c-2.3 1.4-3.4 3-3.6 4.6.3-.1.7-.2 1.1-.2 1.6 0 2.9 1.3 2.9 3a3 3 0 0 1-3 3c-2.4 0-4.2-1.7-4.2-1.8z" fill="currentColor"/></svg>
+                Хороший саппорт: ношу шмотки, ставлю варды.
+              </blockquote>
+              <div class="pcard-contact">
+                <span class="ct-label mono">СВЯЗЬ</span>
+                <a class="ct-link" href="https://t.me/coldstly" target="_blank" rel="noopener" data-tip="@coldstly — Telegram" data-cursor>
+                  <svg viewBox="0 0 24 24" class="ic-xs" aria-hidden="true"><path d="M21 5L3.8 11.6c-.8.3-.75 1.4.05 1.65l4.35 1.35 1.6 4.9c.25.75 1.25.85 1.65.15l2.2-3.8 4.55 3.35c.65.5 1.6.15 1.75-.65L21.9 6.1c.15-.85-.7-1.5-1.45-1.1z" transform="scale(.92) translate(1 .6)" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                  @coldstly
+                </a>
+                <button type="button" class="profile-btn" data-open-player="coldstly" data-cursor>КАРТОЧКА</button>
+              </div>
+              <div class="back-foot mono">SELFHATE.CLUB / SOFT SUP</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- FINDOUTHOWW -->
+      <article class="pcard-wrap reveal" data-delay="240">
+        <div class="pcard tilt spotlight" data-tilt-max="8" data-cursor>
+          <div class="pcard-flip">
+            <div class="pcard-front">
+              <div class="pcard-media">
+                <img src="assets/denis_findouthoww.jpg" alt="Findouthoww" class="pcard-photo" loading="lazy">
+                <div class="pcard-shade"></div>
+                <span class="role-tag mono" data-tip="Позиция 5 — полная поддержка">POS 5 · FULL SUP</span>
+              </div>
+              <div class="pcard-body">
+                <h3 class="pcard-nick">Findouthoww</h3>
+                <div class="pcard-name mono">Любятинский Денис Антонович</div>
+                <div class="pcard-meta">
+                  <span class="meta-item" data-tip="Возраст и дата рождения">
+                    <svg viewBox="0 0 24 24" class="ic-xs" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M3.5 9.5h17M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+                    16 лет | 24.12.2009
+                  </span>
+                  <span class="meta-item" data-tip="Регион">
+                    <svg viewBox="0 0 24 24" class="ic-xs" aria-hidden="true"><path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11z" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="10" r="2.6" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>
+                    Ульяновск, РФ
+                  </span>
+                </div>
+                <div class="pcard-hint mono">НАВЕДИ — ПРОФИЛЬ</div>
+              </div>
+            </div>
+            <div class="pcard-back">
+              <div class="back-head mono">PLAYER FILE // 04</div>
+              <h4 class="back-role">Soft-Support / Full Support</h4>
+              <div class="hero-chips">
+                <span class="chip">Io</span>
+                <span class="chip">Hoodwink</span>
+              </div>
+              <blockquote class="pcard-quote">
+                <svg viewBox="0 0 24 24" class="quote-ic" aria-hidden="true"><path d="M5 17c0-5 2.5-8.5 6-10l.8 1.4C9.5 9.8 8.4 11.4 8.2 13c.3-.1.7-.2 1.1-.2 1.6 0 2.9 1.3 2.9 3a3 3 0 0 1-3 3c-2.4 0-4.2-1.7-4.2-1.8zm9.8 0c0-5 2.5-8.5 6-10l.8 1.4c-2.3 1.4-3.4 3-3.6 4.6.3-.1.7-.2 1.1-.2 1.6 0 2.9 1.3 2.9 3a3 3 0 0 1-3 3c-2.4 0-4.2-1.7-4.2-1.8z" fill="currentColor"/></svg>
+                Чилл паренёк, любит колу.
+              </blockquote>
+              <div class="pcard-contact">
+                <span class="ct-label mono">СВЯЗЬ</span>
+                <a class="ct-link" href="https://t.me/Mayor2286" target="_blank" rel="noopener" data-tip="@Mayor2286 — Telegram" data-cursor>
+                  <svg viewBox="0 0 24 24" class="ic-xs" aria-hidden="true"><path d="M21 5L3.8 11.6c-.8.3-.75 1.4.05 1.65l4.35 1.35 1.6 4.9c.25.75 1.25.85 1.65.15l2.2-3.8 4.55 3.35c.65.5 1.6.15 1.75-.65L21.9 6.1c.15-.85-.7-1.5-1.45-1.1z" transform="scale(.92) translate(1 .6)" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                  @Mayor2286
+                </a>
+                <button type="button" class="profile-btn" data-open-player="findouthoww" data-cursor>КАРТОЧКА</button>
+              </div>
+              <div class="back-foot mono">SELFHATE.CLUB / FULL SUP</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- MYSTERY SLOT (skeleton) -->
+      <article class="pcard-wrap reveal" data-delay="320">
+        <div class="pcard pcard-mystery" data-cursor>
+          <div class="skel-media">
+            <div class="skel-avatar"></div>
+          </div>
+          <div class="pcard-body">
+            <h3 class="pcard-nick skel-line w60"></h3>
+            <div class="pcard-name mono">—</div>
+            <div class="skel-line w80"></div>
+            <div class="skel-line w40"></div>
+            <div class="mystery-note mono">
+              <span class="pulse-dot"></span>
+              СЛОТ ЗАРЕЗЕРВИРОВАН
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= GUILD ================= -->
+<section id="guild" class="section">
+  <div class="container guild-grid">
+    <div class="guild-left">
+      <div class="sec-head left reveal">
+        <div class="sec-tag mono">// GUILD</div>
+        <h2 class="sec-title">О <b>ГИЛЬДИИ</b></h2>
+      </div>
+      <p class="guild-text reveal" data-delay="100">
+        <b>selfhate club</b> — гильдия, занимающая 450-топ ладдер среди всех гильдий Японии.
+        Собрали состав из четырёх городов и двух часовых поясов: играем через пати-кеи,
+        разбираем реплеи и держим уровень, который не купишь каткой на ночь.
+      </p>
+      <ul class="feature-list">
+        <li class="reveal" data-delay="150">
+          <span class="feat-ic" data-tip="Командная игра и дисциплина пиков">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 4.4-3.2 7.9-8 9-4.8-1.1-8-4.6-8-9V6z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8.5 12l2.4 2.4L15.5 9.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <div><b>Дисциплина.</b> Пики под состав, тайминги вардов, контроль карты.</div>
+        </li>
+        <li class="reveal" data-delay="230">
+          <span class="feat-ic" data-tip="Стабильное место в ладдере гильдий Японии">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </span>
+          <div><b>Ладдер.</b> Топ-450 среди всех гильдий Японии — и это не предел.</div>
+        </li>
+        <li class="reveal" data-delay="310">
+          <span class="feat-ic" data-tip="Тренировки, реплеи и внутренние турниры">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4l7 12v4l2-1 2 1v-4l7-12zM4 4h16M9.5 4L12 9l2.5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <div><b>Разборы.</b> Каждый проигрыш превращаем в заметку, а не в срач.</div>
+        </li>
+      </ul>
+
+      <div class="accordion reveal" data-delay="380">
+        <div class="acc-item">
+          <button class="acc-head" type="button" data-cursor aria-expanded="false">
+            <span>Как попасть в состав?</span>
+            <svg class="acc-plus" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+          <div class="acc-body"><div class="acc-content">
+            Оставь заявку ниже. Ждём: адекватность, микрофон, желание расти и стабильный онлайн вечером. Остальное — подтянем вместе.
+          </div></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-head" type="button" data-cursor aria-expanded="false">
+            <span>Почему ладдер Японии?</span>
+            <svg class="acc-plus" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+          <div class="acc-body"><div class="acc-content">
+            Гильдия зарегистрирована на японском регионе: там живой клановый ладдер и предсказуемый пинг. Топ-450 — наша текущая точка отсчёта.
+          </div></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-head" type="button" data-cursor aria-expanded="false">
+            <span>Какие позиции открыты?</span>
+            <svg class="acc-plus" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+          <div class="acc-body"><div class="acc-content">
+            Закрыты: кор, мид, софт-саппорт, фулл-саппорт. Открыт пятый слот — универсал, готовый играть от роли.
+          </div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="guild-right reveal" data-delay="200">
+      <div class="rank-plaque tilt" data-tilt-max="7">
+        <div class="plaque-rays" aria-hidden="true"></div>
+        <div class="plaque-ring"></div>
+        <div class="rank-value mono">#450</div>
+        <div class="rank-caption">ЛАДДЕР ГИЛЬДИЙ ЯПОНИИ</div>
+        <div class="plaque-logos">
+          <img src="assets/shc.jpg" alt="selfhate club" class="plq-logo" data-tip="selfhate club">
+          <svg viewBox="0 0 24 24" class="plq-x" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <img src="assets/dota2.png" alt="Dota 2" class="plq-logo" data-tip="Dota 2">
+        </div>
+      </div>
+      <div class="mini-note mono reveal" data-delay="350">
+        <span class="pulse-dot"></span> статус: активны · сезон 2026
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= JOIN ================= -->
+<section id="join" class="section">
+  <div class="container join-grid">
+    <div class="join-left">
+      <div class="sec-head left reveal">
+        <div class="sec-tag mono">// JOIN</div>
+        <h2 class="sec-title">ЗАЯВКА <b>В КЛУБ</b></h2>
+        <p class="sec-sub">Заполни форму, перетащи желаемую роль в слот — и жди приглашения в тг.</p>
+      </div>
+      <form id="joinForm" class="join-form reveal" data-delay="120" novalidate>
+        <div class="field">
+          <input type="text" id="fNick" name="nick" placeholder=" " autocomplete="off" maxlength="24" data-cursor>
+          <label for="fNick">Никнейм в Dota 2</label>
+          <span class="field-line"></span>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <input type="tel" id="fBirth" name="birth" placeholder=" " inputmode="numeric" maxlength="10" data-mask="birth" data-cursor>
+            <label for="fBirth">Дата рождения</label>
+            <span class="field-line"></span>
+          </div>
+          <div class="field">
+            <input type="text" id="fTg" name="telegram" placeholder=" " autocomplete="off" maxlength="32" data-mask="telegram" data-cursor>
+            <label for="fTg">Телеграм</label>
+            <span class="field-line"></span>
+          </div>
+        </div>
+
+        <div class="drop-task">
+          <div class="drop-chips" id="dropChips">
+            <button type="button" class="dchip" draggable="true" data-role="CORE" data-cursor>CORE</button>
+            <button type="button" class="dchip" draggable="true" data-role="MID" data-cursor>MID</button>
+            <button type="button" class="dchip" draggable="true" data-role="SOFT SUP" data-cursor>SOFT SUP</button>
+            <button type="button" class="dchip" draggable="true" data-role="FULL SUP" data-cursor>FULL SUP</button>
+          </div>
+          <div class="drop-zone" id="dropZone" data-cursor>
+            <svg viewBox="0 0 24 24" class="dz-ic" aria-hidden="true"><path d="M12 16V5M7.5 9.5L12 5l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 15v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <span class="dz-text mono" id="dzText">ПЕРЕТАЩИ РОЛЬ СЮДА</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <textarea id="fAbout" name="about" rows="3" placeholder=" " maxlength="280" data-cursor></textarea>
+          <label for="fAbout">Пара слов о себе</label>
+          <span class="field-line"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg btn-submit ripple-host magnetic" id="submitBtn" data-cursor>
+          <span class="btn-label">
+            <svg viewBox="0 0 24 24" class="ic" aria-hidden="true"><path d="M3 11l18-7-7 18-2.5-7.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M11.5 14.5L21 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            Отправить заявку
+          </span>
+          <span class="btn-spinner" aria-hidden="true"></span>
+          <svg class="btn-check" viewBox="0 0 52 52" aria-hidden="true"><circle class="chk-circle" cx="26" cy="26" r="23" fill="none"/><path class="chk-path" d="M14 27l8 8 16-16" fill="none"/></svg>
+        </button>
+        <div class="form-note mono">заявку видит только лидер гильдии</div>
+      </form>
+    </div>
+
+    <aside class="join-side reveal" data-delay="250">
+      <div class="side-card discord-card">
+        <div class="side-title mono">DISCORD ГИЛЬДИИ</div>
+        <div class="dc-row">
+          <div class="dc-qr-frame" data-tip="Наведи камеру телефона">
+            <img src="assets/discord_qr.png" alt="QR-код приглашения в Discord selfhate club" class="dc-qr" id="discordQr">
+            <span class="qr-scanline"></span>
+          </div>
+          <div class="dc-info">
+            <span class="dc-invite mono">discord.gg/<b>6VVDgfvjDF</b></span>
+            <a class="btn btn-primary btn-sm magnetic ripple-host dc-btn" href="https://discord.gg/6VVDgfvjDF" target="_blank" rel="noopener" data-cursor>
+              <svg viewBox="0 0 24 24" class="ic" aria-hidden="true"><rect x="4" y="6.5" width="16" height="11.5" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="9.4" cy="12.2" r="1.35" fill="currentColor"/><circle cx="14.6" cy="12.2" r="1.35" fill="currentColor"/><path d="M7 6.8L5.6 4.5M17 6.8l1.4-2.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              Войти в сервер
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="side-card">
+        <div class="side-title mono">ТРЕБОВАНИЯ</div>
+        <ul class="req-list">
+          <li><i></i>Онлайн после 18:00 МСК</li>
+          <li><i></i>Микрофон и адекватность</li>
+          <li><i></i>Готовность играть от роли</li>
+          <li><i></i>Не токсить — боль держим в себе</li>
+        </ul>
+      </div>
+      <div class="side-card quote-card">
+        <div class="side-title mono">МОТО КЛУБА</div>
+        <p class="side-quote">«Проиграл — разобрал. Разобрал — выиграл.»</p>
+      </div>
+    </aside>
+  </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer id="footer">
+  <div class="container footer-inner">
+    <div class="foot-brand">
+      <img src="assets/shc.jpg" alt="selfhate club" class="foot-logo" id="eggLogo" data-tip="Кликни 5 раз… если осмелишься">
+      <div class="foot-brand-text">
+        <div class="foot-title">selfhate<b>club</b></div>
+        <div class="foot-sub mono">dota 2 guild · japan ladder · top-450</div>
+      </div>
+    </div>
+    <div class="socials">
+      <a href="#" class="soc magnetic" data-tip="Steam" data-cursor aria-label="Steam">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="14.8" cy="9.2" r="2.4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="9" cy="15" r="1.9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.6 13.7l2.6-2.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </a>
+      <a href="https://discord.gg/6VVDgfvjDF" target="_blank" rel="noopener" class="soc magnetic" data-tip="Discord гильдии" data-cursor aria-label="Discord">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="6.5" width="16" height="11.5" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="9.4" cy="12.2" r="1.35" fill="currentColor"/><circle cx="14.6" cy="12.2" r="1.35" fill="currentColor"/><path d="M7 6.8L5.6 4.5M17 6.8l1.4-2.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </a>
+      <a href="https://t.me/sxulcanseeyou" target="_blank" rel="noopener" class="soc magnetic" data-tip="Telegram лидера" data-cursor aria-label="Telegram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 5L3.8 11.6c-.8.3-.75 1.4.05 1.65l4.35 1.35 1.6 4.9c.25.75 1.25.85 1.65.15l2.2-3.8 4.55 3.35c.65.5 1.6.15 1.75-.65L21.9 6.1c.15-.85-.7-1.5-1.45-1.1z" transform="scale(.92) translate(1 .6)" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <div class="foot-bottom mono">
+      <span>© 2026 selfhate club</span>
+      <span class="foot-disclaimer">selfhate landing · аффилирован с Valve · Dota 2 — товарный знак Valve</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= PLAYER MODAL (card-окно) ================= -->
+<div class="modal-backdrop" id="playerModal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-label="Карточка игрока">
+    <div class="modal-glow" aria-hidden="true"></div>
+    <button class="modal-close" id="modalClose" type="button" aria-label="Закрыть окно" data-cursor>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <div class="modal-content" id="modalContent"></div>
+  </div>
+</div>
+
+<!-- ================= TOASTS ================= -->
+<div id="toasts" class="toasts" aria-live="polite"></div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
